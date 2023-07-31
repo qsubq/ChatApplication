@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="on_boarding_description_1">Enjoy quick pick-up and delivery to\nyour destination</string>
+    <string name="on_boarding_description_2">Different modes of payment either\nbefore and after delivery without stress</string>
+    <string name="on_boarding_description_3">Enjoy quick pick-up and delivery to\nyour destination</string>
+    <string name="on_boarding_title_1">Flexible Payment</string>
+    <string name="on_boarding_title_2">Flexible Payment</string>
+    <string name="on_boarding_title_3">Real-time Tracking</string>
+</resources>

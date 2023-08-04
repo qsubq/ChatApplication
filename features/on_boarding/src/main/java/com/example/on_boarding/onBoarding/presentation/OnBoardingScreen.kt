@@ -33,12 +33,13 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.core.AppRoute
 import com.example.data.model.OnBoardingModel
 import com.example.on_boarding.R
 import java.util.LinkedList
 
 @Composable
-fun OnBoardingScreen(navController: NavController) {
+fun OnBoardingScreen(navController: NavController, viewModel: OnBoardingViewModel) {
     val onBoardingQueue = remember {
         LinkedList(
             mutableListOf(
@@ -94,7 +95,7 @@ fun OnBoardingScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Image(
-            modifier = Modifier.padding(start = 22.dp, end = 22.dp).testTag("mainImg"),
+            modifier = Modifier.padding(start = 22.dp, end = 22.dp).testTag("MainImg"),
             imageVector = ImageVector.vectorResource(id = currentItem.value!!.imageId),
             contentDescription = null,
         )
@@ -135,8 +136,9 @@ fun OnBoardingScreen(navController: NavController) {
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF0560FA)),
                         shape = RoundedCornerShape(6.dp),
                         onClick = {
-                            navController.navigate("signUp") {
-                                popUpTo("onBoarding") {
+                            viewModel.setFlagSeenOnBoarding()
+                            navController.navigate(AppRoute.SignUp.name) {
+                                popUpTo(AppRoute.OnBoarding.name) {
                                     inclusive = true
                                 }
                             }
@@ -148,12 +150,12 @@ fun OnBoardingScreen(navController: NavController) {
                 Text(
                     modifier = Modifier.padding(bottom = 44.dp, top = 2.dp)
                         .clickable {
-                            navController.navigate("SignIn") {
-                                popUpTo("onBoarding") {
+                            navController.navigate(AppRoute.SignIn.name) {
+                                popUpTo(AppRoute.OnBoarding.name) {
                                     inclusive = true
                                 }
                             }
-                        },
+                        }.testTag("SpanTextSignIn"),
                     text = annotatedSignIn,
                 )
             }
@@ -169,8 +171,9 @@ fun OnBoardingScreen(navController: NavController) {
                         .align(Alignment.BottomStart)
                         .padding(start = 24.dp),
                     onClick = {
-                        navController.navigate("signUp") {
-                            popUpTo("onBoarding") {
+                        viewModel.setFlagSeenOnBoarding()
+                        navController.navigate(AppRoute.SignUp.name) {
+                            popUpTo(AppRoute.OnBoarding.name) {
                                 inclusive = true
                             }
                         }

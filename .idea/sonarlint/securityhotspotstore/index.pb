@@ -19,11 +19,11 @@ d
 ffeatures/on_boarding/src/main/java/com/example/on_boarding/onBoarding/presentation/OnBoardingScreen.kt,b\9\b924567e6d0f5051f495fec742a67bec7096aab2
 “
 cfeatures/on_boarding/src/main/java/com/example/on_boarding/onBoarding/OnBoardingViewModelFactory.kt,1\9\19d361d4a745be562be78075ed3a01df2009749e
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 ™
 ifeatures/on_boarding/src/main/java/com/example/on_boarding/onBoarding/presentation/OnBoardingViewModel.kt,0\2\02f5d4353cf13b6e6753219021737aedd2035997
 e
 5app/src/main/java/com/example/compose_oech/ChatApp.kt,f\2\f25c820373e74cefb77aa926ca265c0cd1d97745
 s
 Capp/src/androidTest/java/com/example/compose_oech/OnBoardingTest.kt,6\a\6a79e165e840c0b750407c4f26165d087ac1710f
+Œ
+\features/on_boarding/src/main/java/com/example/on_boarding/onBoarding/di/OnBoardingModule.kt,e\2\e2da00d14d85726696938a7c78e7a5084d3fda28

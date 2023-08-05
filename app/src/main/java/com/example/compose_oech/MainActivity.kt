@@ -19,7 +19,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.compose_oech.di.DaggerAppComponent
 import com.example.compose_oech.screen.signIn.SignInScreen
-import com.example.compose_oech.screen.signUp.SignUpScreen
+import com.example.sign_up.presentation.SignUpScreen
 import com.example.compose_oech.ui.theme.Compose_oechTheme
 import com.example.core.AppRoute
 import com.example.on_boarding.onBoarding.OnBoardingViewModelFactory
@@ -101,7 +101,7 @@ fun ChatApp(
                 viewModel,
             )
         }
-        composable(AppRoute.SignUp.name) { SignUpScreen(navController) }
+        composable(AppRoute.SignUp.name) { SignUpScreen() }
         composable(AppRoute.SignIn.name) { SignInScreen(navController) }
     }
 }

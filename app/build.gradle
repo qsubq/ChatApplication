@@ -50,6 +50,7 @@ android {
 dependencies {
     implementation project(path: ":features:on_boarding")
     implementation project(path: ":features:sign_up")
+    implementation project(path: ":features:sign_in")
     implementation project(path: ":core")
     implementation project(path: ":data")
 

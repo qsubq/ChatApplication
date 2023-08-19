@@ -66,7 +66,7 @@ fun OnBoardingScreen(navController: NavController, viewModel: OnBoardingViewMode
     }
     val currentItem = remember { mutableStateOf(onBoardingQueue.poll()) }
 
-    val annotatedSignIn = remember {
+    val annotatedSignIn =
         buildAnnotatedString {
             withStyle(
                 style = SpanStyle(
@@ -86,7 +86,6 @@ fun OnBoardingScreen(navController: NavController, viewModel: OnBoardingViewMode
                 append("Sign in")
             }
         }
-    }
 
     Column(
         modifier = Modifier

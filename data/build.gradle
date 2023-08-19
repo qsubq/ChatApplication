@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.8.21'
 }
 
 android {
@@ -32,6 +33,17 @@ android {
 }
 
 dependencies {
+    //Supabase
+    implementation platform("io.github.jan-tennert.supabase:bom:1.1.0")
+    implementation 'io.github.jan-tennert.supabase:postgrest-kt'
+    implementation 'io.github.jan-tennert.supabase:realtime-kt'
+    implementation 'io.github.jan-tennert.supabase:gotrue-kt'
+
+    //Ktor
+    implementation 'io.ktor:ktor-client-okhttp:2.0.0'
+
+    //Kotlinx serialization
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1"
 
     //Dagger
     implementation 'com.google.dagger:dagger:2.42'

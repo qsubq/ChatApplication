@@ -18,13 +18,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.compose_oech.di.DaggerAppComponent
-import com.example.compose_oech.screen.signIn.SignInScreen
-import com.example.sign_up.presentation.SignUpScreen
 import com.example.compose_oech.ui.theme.Compose_oechTheme
 import com.example.core.AppRoute
 import com.example.on_boarding.onBoarding.OnBoardingViewModelFactory
 import com.example.on_boarding.onBoarding.presentation.OnBoardingScreen
 import com.example.on_boarding.onBoarding.presentation.OnBoardingViewModel
+import com.example.sign_in.presentation.SignInScreen
+import com.example.sign_up.presentation.SignUpScreen
+import com.example.sign_up.presentation.SignUpViewModel
 import javax.inject.Inject
 
 class MainActivity : ComponentActivity() {
@@ -93,7 +94,7 @@ fun ChatApp(
                     .build()
 
             val viewModel: OnBoardingViewModel = daggerViewModel {
-                component.getViewModel()
+                component.getOnBoardingViewModel()
             }
 
             OnBoardingScreen(
@@ -101,7 +102,20 @@ fun ChatApp(
                 viewModel,
             )
         }
-        composable(AppRoute.SignUp.name) { SignUpScreen() }
+        composable(AppRoute.SignUp.name) {
+            val component =
+                DaggerAppComponent.builder().context(LocalContext.current.applicationContext)
+                    .build()
+
+            val viewModel: SignUpViewModel = daggerViewModel {
+                component.getSignUpViewModel()
+            }
+
+            SignUpScreen(
+                navController,
+                viewModel,
+            )
+        }
         composable(AppRoute.SignIn.name) { SignInScreen(navController) }
     }
 }

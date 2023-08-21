@@ -59,6 +59,7 @@ fun CustomDialogUILayout(
                         start = 18.dp,
                         end = 18.dp,
                     ),
+                    maxLines = 5,
                     textAlign = TextAlign.Left,
                 )
 
@@ -72,6 +73,7 @@ fun CustomDialogUILayout(
                         start = 18.dp,
                         end = 18.dp,
                     ),
+                    maxLines = 5,
                     textAlign = TextAlign.Left,
                 )
 

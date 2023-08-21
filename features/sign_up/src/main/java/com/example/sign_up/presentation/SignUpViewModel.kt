@@ -13,13 +13,13 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class SignUpViewModel(val context: Application, val signUpUserUseCase: SignUpUserUseCase) :
+class SignUpViewModel(val context: Application, private val signUpUserUseCase: SignUpUserUseCase) :
     AndroidViewModel(context) {
     private val _uiState: MutableStateFlow<UiState> = MutableStateFlow(UiState.Waiting)
     var uiState: StateFlow<UiState> = _uiState
 
     private val errorHandler = CoroutineExceptionHandler { _, throwable ->
-        Log.e("SignUpScreen", throwable.message.toString())
+        Log.e("Sign up", throwable.message.toString())
         _uiState.value = UiState.Error(throwable.message.toString(), throwable.cause.toString())
     }
 
@@ -34,6 +34,10 @@ class SignUpViewModel(val context: Application, val signUpUserUseCase: SignUpUse
         } else {
             _uiState.value = UiState.Error("Out of connection", "Check your network")
         }
+    }
+
+    fun goToSignInScreen() {
+        _uiState.value = UiState.Waiting
     }
 
     private fun isOnline(context: Application): Boolean {

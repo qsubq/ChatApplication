@@ -1,5 +1,6 @@
 package com.example.sign_up.presentation
 
+import android.util.Log
 import android.util.Patterns
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -57,6 +58,8 @@ import com.example.core.ui.CustomDialog
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SignUpScreen(navController: NavController, viewModel: SignUpViewModel) {
+    Log.e("Sign up", "Sign up screen is initialized")
+
     val localUriHandler = LocalUriHandler.current
 
     val fullNameFieldState = rememberSaveable { mutableStateOf("") }
@@ -75,7 +78,6 @@ fun SignUpScreen(navController: NavController, viewModel: SignUpViewModel) {
     val uiState = viewModel.uiState.collectAsState()
 
     val progressBarVisible = rememberSaveable { mutableStateOf(false) }
-
     val openDialogState = rememberSaveable { mutableStateOf(true) }
 
     val annotatedTermsAndPolicy =
@@ -132,7 +134,7 @@ fun SignUpScreen(navController: NavController, viewModel: SignUpViewModel) {
         }
 
         is UiState.Success -> {
-            progressBarVisible.value = false
+            viewModel.goToSignInScreen()
             navController.navigate(AppRoute.SignIn.name)
         }
 

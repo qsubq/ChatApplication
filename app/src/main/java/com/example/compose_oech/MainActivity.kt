@@ -24,6 +24,7 @@ import com.example.on_boarding.onBoarding.OnBoardingViewModelFactory
 import com.example.on_boarding.onBoarding.presentation.OnBoardingScreen
 import com.example.on_boarding.onBoarding.presentation.OnBoardingViewModel
 import com.example.sign_in.presentation.SignInScreen
+import com.example.sign_in.presentation.SignInViewModel
 import com.example.sign_up.presentation.SignUpScreen
 import com.example.sign_up.presentation.SignUpViewModel
 import javax.inject.Inject
@@ -116,6 +117,15 @@ fun ChatApp(
                 viewModel,
             )
         }
-        composable(AppRoute.SignIn.name) { SignInScreen(navController) }
+        composable(AppRoute.SignIn.name) {
+            val component =
+                DaggerAppComponent.builder().context(LocalContext.current.applicationContext)
+                    .build()
+
+            val viewModel: SignInViewModel = daggerViewModel {
+                component.getSignInViewModel()
+            }
+            SignInScreen(navController, viewModel)
+        }
     }
 }
